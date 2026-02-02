@@ -4,7 +4,7 @@
 
 MedNeuro is a research-oriented project that bridges Neuroscience, AI for Decoding Meditation States and Traits Using Electroencephalography
 
-## [View Colab](https://colab.research.google.com/drive/1oP8HSQmYyksIMZhsPeAkkWcAlFLAwcYk?usp=sharing)
+<!--## [View Colab](https://colab.research.google.com/drive/1oP8HSQmYyksIMZhsPeAkkWcAlFLAwcYk?usp=sharing) -->
 
 ## 2. Tech Stack
 
