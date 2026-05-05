@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   BarChart,
   Bar,
@@ -23,20 +23,26 @@ const EEGGroupComparison = () => {
 
   
   // === UPDATED DEMO DATA ===
-  const groupPerformance = [
-    { group: "HTR (Himalayan)", accuracy: 74.3, alpha: 15.2, gamma: 6.8 },
-    { group: "CTR (Control)", accuracy: 61.4, alpha: 10.5, gamma: 4.1 },
-    { group: "TM (Transcendental)", accuracy: 69.8, alpha: 16.1, gamma: 7.2 },
-    { group: "VIP (Vipassana)", accuracy: 71.6, alpha: 13.5, gamma: 5.9 },
-    { group: "SNY (Shoonya)", accuracy: 67.9, alpha: 12.2, gamma: 6.1 },
-  ];
+  const groupPerformance = useMemo(
+    () => [
+      { group: "HTR (Himalayan)", accuracy: 74.3, alpha: 15.2, gamma: 6.8 },
+      { group: "CTR (Control)", accuracy: 61.4, alpha: 10.5, gamma: 4.1 },
+      { group: "TM (Transcendental)", accuracy: 69.8, alpha: 16.1, gamma: 7.2 },
+      { group: "VIP (Vipassana)", accuracy: 71.6, alpha: 13.5, gamma: 5.9 },
+      { group: "SNY (Shoonya)", accuracy: 67.9, alpha: 12.2, gamma: 6.1 },
+    ],
+    []
+  );
 
   // Additional demo data for cognitive performance radar chart
-  const cognitiveData = [
-    { metric: "Focus", HTR: 82, CTR: 65, TM: 79, VIP: 80, SNY: 77 },
-    { metric: "Calmness", HTR: 88, CTR: 70, TM: 83, VIP: 85, SNY: 84 },
-    { metric: "Attention", HTR: 80, CTR: 66, TM: 78, VIP: 79, SNY: 76 },
-  ];
+  const cognitiveData = useMemo(
+    () => [
+      { metric: "Focus", HTR: 82, CTR: 65, TM: 79, VIP: 80, SNY: 77 },
+      { metric: "Calmness", HTR: 88, CTR: 70, TM: 83, VIP: 85, SNY: 84 },
+      { metric: "Attention", HTR: 80, CTR: 66, TM: 78, VIP: 79, SNY: 76 },
+    ],
+    []
+  );
 
 
     const [loading, setLoading] = useState(true);
@@ -52,16 +58,17 @@ const EEGGroupComparison = () => {
   // ===== LOADER UI =====
   if (loading) {
     return (
-      <div className="min-h-screen flex justify-center items-center bg-white dark:bg-gray-900">
+      <div className="min-h-screen flex justify-center items-center ">
         <LoadingSpinner size={120} color="border-indigo-600" />
       </div>
     );
   }
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 p-8">
+    // <section className=" p-8">
+  <section className="bg-white dark:from-gray-950 dark:to-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 p-8"> 
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-8 ">
         <div className="flex items-center gap-3">
           <Brain className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
@@ -155,4 +162,4 @@ const EEGGroupComparison = () => {
   );
 };
 
-export default EEGGroupComparison;
+export default React.memo(EEGGroupComparison);

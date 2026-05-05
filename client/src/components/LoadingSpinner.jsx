@@ -31,7 +31,8 @@
 // export default LoadingSpinner;
 
 import React from "react";
-import logo from "../assets/icons/medneuro.jpg";
+import logo from "../assets/icons/medneuro-nobg.png";
+// import logo from "../assets/icons/medneuro.jpg";
 
 const LoadingSpinner = () => {
     return (
@@ -39,7 +40,7 @@ const LoadingSpinner = () => {
             <img
                 src={logo}
                 alt="loader"
-                className="w-40 h-40 rounded-full object-cover animate-fade"
+                className="w-40 h-40 rounded-full object-contain animate-fade"
             />
 
             <p className="text-gray-600 dark:text-gray-300 text-4xl tracking-wide flex items-center gap-0.5">

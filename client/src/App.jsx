@@ -12,11 +12,13 @@ import Analytics from "./pages/Analytics";
 // import Admin from "./pages/Admin";
 import Settings from "./pages/Settings";
 import KeyInsights from "./pages/KeyInsights"
+import UploadEEGData from "./pages/UploadEEGData";
+import StatResults from "./pages/StatResults";
 
-//Animes
-import BrandNameAnimation from "./loaders/BrandNameAnimation";
-import DoorAnimation from "./loaders/DoorAnimation";
-import LoaderPanels from "./loaders/LoaderPanels";
+// //Animes
+// import BrandNameAnimation from "./loaders/BrandNameAnimation";
+// import DoorAnimation from "./loaders/DoorAnimation";
+// import LoaderPanels from "./loaders/LoaderPanels";
 
 
 
@@ -27,13 +29,13 @@ const App = () => {
 
 
   // Loading Animation phases (kept intact for future use)
-  useEffect(() => {
-    if (isDesktop) {
-      setPhase(1);
-    } else {
-      setPhase(2);
-    }
-  }, [isDesktop]);
+  // useEffect(() => {
+  //   if (isDesktop) {
+  //     setPhase(1);
+  //   } else {
+  //     setPhase(2);
+  //   }
+  // }, [isDesktop]);
 
 
   return (
@@ -49,15 +51,17 @@ const App = () => {
           {/* <Route path="/admin" element={<Admin />} /> */}
           <Route path="/keyinsights" element={<KeyInsights />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/upload-eeg" element={<UploadEEGData />} />
+          <Route path="/stat-results" element={<StatResults />} />
           
         </Route>
       </Routes>
 
 
       {/* Panels visible for animation phases */}
-      {phase !== 0 && <LoaderPanels visible={true} />}
+      {/* {phase !== 0 && <LoaderPanels visible={true} />}
       {phase === 1 && (<BrandNameAnimation onComplete={() => setPhase(2)} />)}
-      {phase === 2 && (<DoorAnimation onComplete={() => setPhase(0)} />)}
+      {phase === 2 && (<DoorAnimation onComplete={() => setPhase(0)} />)} */}
     </Router>
   );
 };

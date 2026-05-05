@@ -1,0 +1,24 @@
+# ================= FRONTEND =================
+client/node_modules/
+client/dist/
+client/build/
+
+# ================= BACKEND =================
+backend/myenv/
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+
+# ================= ENV FILES =================
+.env
+.env.*
+*.env
+
+
+
+# ================= IDE =================
+.vscode/
+.idea/
+
+# ================= LOGS =================
+*.log

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   Brain,
   Activity,
@@ -18,6 +18,8 @@ import {
 } from "recharts";
 import LoadingSpinner from "../components/LoadingSpinner"; // <- add this
 
+import HB from "../assets/Epilepsy.mp4";
+
 const EEGReports = () => {
   const [loading, setLoading] = useState(true);
 
@@ -28,46 +30,61 @@ const EEGReports = () => {
   }, []);
 
   // === DEMO DATA ===
-  const accuracy = 89.7;
+  const accuracy = 92.9
   const trainingDate = new Date("2025-10-12T15:30:00");
 
-  const comparisonData = [
-    { metric: "Accuracy", RF: 85.7, SVM: 83.4, GB: 86.2 },
-    { metric: "Precision", RF: 88.1, SVM: 85.2, GB: 87.8 },
-    { metric: "Recall", RF: 84.5, SVM: 82.7, GB: 85.9 },
-    { metric: "F1 Score", RF: 86.3, SVM: 83.8, GB: 86.0 },
-  ];
+  const comparisonData = useMemo(
+    () => [
+      { metric: "Accuracy", RF: 85.7, SVM: 83.4, GB: 86.2 },
+      { metric: "Precision", RF: 88.1, SVM: 85.2, GB: 87.8 },
+      { metric: "Recall", RF: 84.5, SVM: 82.7, GB: 85.9 },
+      { metric: "F1 Score", RF: 86.3, SVM: 83.8, GB: 86.0 },
+    ],
+    []
+  );
 
-  const modelConfig = {
-    algorithm: "Random Forest Classifier",
-    n_estimators: 400,
-    test_split: "20%",
-    features_used: 64,
-  };
+  const modelConfig = useMemo(
+    () => ({
+      algorithm: "Random Forest Classifier",
+      n_estimators: 400,
+      test_split: "20%",
+      features_used: 64,
+    }),
+    []
+  );
 
-  const dataSummary = {
-    participants: 98,
-    meditationGroups: 5,
-    totalTasks: 2,
-  };
+  const dataSummary = useMemo(
+    () => ({
+      participants: 76,
+      meditationGroups: 5,
+      totalTasks: 2,
+    }),
+    []
+  );
 
   // ===== LOADER UI =====
   if (loading) {
     return (
-      <div className="min-h-screen flex justify-center items-center bg-white dark:bg-gray-900">
+      <div className="min-h-screen flex justify-center items-center ">
         <LoadingSpinner size={120} color="border-indigo-600" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900 p-6">
+    <div className="min-h-screen bg-white border shadow-sm rounded-2xl p-6">
       <div className="max-w-7xl mx-auto space-y-6">
 
         {/* === HEADER === */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-800">
+
+        <div className=" bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm border border-gray-200 dark:border-gray-800">
+         
+         <div className = "flex justify-between">
+
+
+         <div>
           <div className="flex items-center space-x-3 mb-6">
-            <Brain className="w-9 h-9 text-indigo-600 dark:text-indigo-400" />
+            <Brain className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
             <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
               EEG Model Performance Report
             </h1>
@@ -76,7 +93,24 @@ const EEGReports = () => {
             Machine learning evaluation of EEG-based meditation classification.
             Demo data displayed for Random Forest, SVM, and Gradient Boosting.
           </p>
+         </div>
+
+            <div className= "p-2">
+              <video
+                src={HB}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-44 object-contain"
+              />
+            </div>
+          </div>
+      
+
         </div>
+
+        
 
         {/* === SUMMARY CARDS === */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -156,7 +190,7 @@ const EEGReports = () => {
         </div>
 
         {/* === PERFORMANCE CHART === */}
-        <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-md border border-gray-200 dark:border-gray-800">
+        <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
             Model Comparison (Demo Metrics)
           </h2>
@@ -181,7 +215,7 @@ const EEGReports = () => {
   );
 };
 
-export default EEGReports;
+export default React.memo(EEGReports);
 
 
 // import React from "react";

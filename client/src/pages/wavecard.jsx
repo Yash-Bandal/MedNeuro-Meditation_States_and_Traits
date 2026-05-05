@@ -307,7 +307,7 @@ const BrainWaveEEGTracings = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setWaveDataList(generateAllWaves());
-        }, 5000);
+        }, 4000);
         return () => clearInterval(interval);
     }, [generateAllWaves]);
 
@@ -339,9 +339,9 @@ const BrainWaveEEGTracings = () => {
                 ))}
             </div>
 
-            <div className="mt-8 text-center text-sm font-medium text-gray-700">
+            {/* <div className="mt-8 text-center text-sm font-medium text-gray-700">
                 Figure 3. Different Brain Rhythms (Auto-Updating Simulation)
-            </div>
+            </div> */}
         </div>
     );
 };

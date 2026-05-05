@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Sun, Moon, Monitor, Database, RefreshCcw, Brain, Settings2 } from "lucide-react";
 import { useTheme } from "../hooks/useTheme"; // adjust path if needed
+import { API_BASE_URL, getHealth, getModelInfo } from "../api/eegApi";
 
 
 const Settings = () => {
@@ -11,8 +12,9 @@ const Settings = () => {
   const { theme, toggleTheme } = useTheme();
 
   
-  const [apiStatus, setApiStatus] = useState("Connected");
-  const [modelVersion, setModelVersion] = useState("v1.2 - EEG-Meditation");
+  const [apiStatus, setApiStatus] = useState("Checking...");
+  const [modelVersion, setModelVersion] = useState("Loading...");
+  const [featureCount, setFeatureCount] = useState("N/A");
 
   // const handleThemeChange = (mode) => {
   //   setTheme(mode);
@@ -33,18 +35,37 @@ const Settings = () => {
   };
 
 
-  const handleModelRefresh = () => {
-    alert("Model reloaded successfully (demo)!");
+  const handleModelRefresh = async () => {
+    try {
+      const modelInfo = await getModelInfo();
+      setModelVersion(modelInfo.model_type || "RandomForest Pipeline");
+      setFeatureCount(String(modelInfo.feature_count ?? "N/A"));
+    } catch (error) {
+      setModelVersion("Unavailable");
+    }
   };
 
-  const handleBackendCheck = () => {
+  const handleBackendCheck = async () => {
     setApiStatus("Checking...");
-    setTimeout(() => setApiStatus("Connected"), 1000);
+    try {
+      const health = await getHealth();
+      setApiStatus(health.status === "ok" ? "Connected" : "Unavailable");
+    } catch (error) {
+      setApiStatus("Unavailable");
+    }
   };
+
+  useEffect(() => {
+    const init = async () => {
+      await handleBackendCheck();
+      await handleModelRefresh();
+    };
+    init();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
-      <div className="max-w-5xl mx-auto space-y-10">
+      <div className="max-w-7xl mx-auto space-y-10">
         {/* Header */}
         <div className="flex items-center gap-3 mb-6">
           <Settings2 className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
@@ -84,7 +105,7 @@ const Settings = () => {
               <Database className="w-5 h-5 text-green-500" /> Backend Connection
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Server Endpoint: <code className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">http://localhost:5173/model</code>
+              Server Endpoint: <code className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">{API_BASE_URL}</code>
             </p>
             <div className="flex justify-between items-center">
               <span
@@ -109,6 +130,9 @@ const Settings = () => {
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               Current ML model: <span className="font-semibold">{modelVersion}</span>
             </p>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Feature count: <span className="font-semibold">{featureCount}</span>
+            </p>
             <button
               onClick={handleModelRefresh}
               className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all"
@@ -126,11 +150,11 @@ const Settings = () => {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-4">
               <p className="text-blue-700 dark:text-blue-300 font-semibold">Project Title</p>
-              <p className="text-gray-800 dark:text-gray-200">EEG and Meditation — Brainwave Analysis</p>
+              <p className="text-gray-800 dark:text-gray-200">Bridging Conciousness and The Subconscious:EEG Across States if Awareness</p>
             </div>
             <div className="bg-green-50 dark:bg-green-900/30 rounded-lg p-4">
               <p className="text-green-700 dark:text-green-300 font-semibold">Active Model Accuracy</p>
-              <p className="text-gray-800 dark:text-gray-200">65.7%</p>
+              <p className="text-gray-800 dark:text-gray-200">92.9%</p>
             </div>
             <div className="bg-yellow-50 dark:bg-yellow-900/30 rounded-lg p-4">
               <p className="text-yellow-700 dark:text-yellow-300 font-semibold">Last Update</p>

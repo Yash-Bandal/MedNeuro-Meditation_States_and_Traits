@@ -1,127 +1,130 @@
-// src/components/Sidebar.jsx
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Link, useLocation } from 'react-router-dom';
-import { Home, FileText, BarChart2, ChevronLeft, ChevronRight, BrainCircuit, Users, GitCompare, BarChart3, Lightbulb, Settings } from 'lucide-react';
-
-
 import {
-    FaHome,
-    FaSearchDollar,
-    FaCreditCard,
-    FaChartLine,
-    FaRobot,
-    FaUniversity,
-    FaCog,
-
     FaSignOutAlt,
-    FaListUl,
-    FaBars,
-    FaBalanceScale
+    FaBalanceScale,
+    FaCog,
+    FaHome,
 } from "react-icons/fa";
-
-
-
-
+import Logo from "../assets/icons/medneuro-nobg.png";
+import { BarChart3, Upload, ChevronLeft, ChevronRight, Sigma } from "lucide-react";
 
 const Sidebar = () => {
-    const [collapsed, setCollapsed] = useState(false);
-    const location = useLocation();
-    
-    // const navItems = [
-    //     { to: "/", label: "Dashboard", icon: <FaHome /> },
-    //     { to: "/cards", label: "Configuration", icon: <FaCog /> },
-    //     { to: "/compare", label: "Compare", icon: <FaBalanceScale /> },
-    //     { to: "/analytics", label: "Analytics", icon: <FaChartLine /> },
-    //     // { to: "/recommendation", label: "Compare", icon: <FaRobot /> },
-    //     { to: "/keyinsights", label: "Key Insights", icon: <FaUniversity /> },
-    //     { to: "/settings", label: "Settings", icon: <FaCog /> },
-    // ];
+    const [expanded, setExpanded] = useState(false);
 
     const navItems = [
-        { to: "/", label: "Dashboard", icon: <Home size={20} /> },
-        { to: "/cards", label: "Participants", icon: <Users size={20} /> },
-        { to: "/compare", label: "Compare", icon: <GitCompare size={20} /> },
-        { to: "/analytics", label: "Analytics", icon: <BarChart3 size={20} /> },
-        { to: "/keyinsights", label: "Key Insights", icon: <Lightbulb size={20} /> },
-        { to: "/settings", label: "Settings", icon: <Settings size={20} /> },
+        { to: "/", label: "Dashboard", icon: <FaHome /> },
+        // { to: "/compare", label: "Compare", icon: <FaBalanceScale /> },
+        // { to: "/analytics", label: "Analytics", icon: <BarChart3 size={18} /> },
+        { to: "/stat-results", label: "Behavioural Analysis", icon: <Sigma size={18} /> },
+        { to: "/upload-eeg", label: "Regional Classifier ", icon: <Upload size={18} /> },
+        { to: "/settings", label: "Settings", icon: <FaCog /> },
     ];
-
-    const isActive = (path) => location.pathname === path;
-
-
-    const navigationItems = [
-        { path: '/', icon: <Home size={24} />, label: 'Home' },
-        { path: '/reports', icon: <FileText size={24} />, label: 'Reports' },
-        { path: '/comparison', icon: <BarChart2 size={24} />, label: 'Comparison' },
-        { path: '/differentBetweenModels', icon: <BrainCircuit size={24} />, label: 'Compare Model' },
-    ];
-
-
 
     return (
-        <div className={`h-screen transition-all duration-300 ${collapsed ? "w-20" : "w-64 max-sm:w-screen"} bg-[#101322] text-white flex flex-col dark:bg-[#0c0d0f] `}>
-            {/* <div className={`h-screen transition-all duration-300 ${collapsed ? "w-20" : "w-64"} bg-gradient-to-b from-purple-700 to-pink-500 text-white flex flex-col`}> */}
+        <div
+            className={`
+        h-screen ${expanded ? "w-72" : "w-20"} flex-shrink-0
+        bg-white text-gray-800
+        border-r border-gray-200
+        transition-[width] duration-500 ease-in-out
+        overflow-x-hidden
+      `}
+        >
+            <div
+                className="
+        relative flex items-center justify-center
+        h-28 px-5
+        border-b border-gray-200/70
+        after:content-[''] after:absolute after:bottom-0 after:left-4 after:right-4
+        after:h-[1px] after:bg-gray-300/40
+      "
+            >
+                
+                <div className="relative flex items-center justify-center h-24 border-b border-gray-200">
+                    <div className="flex items-center justify-center h-24">
+                        <img
+                            src={Logo}
+                            alt="Logo"
+                            className={`
+                                object-contain
+                                transition-all duration-300 ease-in-out
+                                ${expanded ? "h-28 w-28" : "h-10 w-10 opacity-0"}
+                                `}
+                        />
+                    </div>
+                </div>
+                <button
+                    onClick={() => setExpanded((prev) => !prev)}
+                    className="absolute right-6 top-1/2 -translate-y-1/2 p-1 rounded-md hover:bg-gray-100 transition-colors"
+                    aria-label={expanded ? "Collapse sidebar" : "Expand sidebar"}
+                >
+                    {expanded ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
+                </button>
 
-            {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-700">
-                    {!collapsed && <h1 className="text-xl font-bold">Dashboard</h1>}
+            </div>
+            
+
+            <div className="flex flex-col h-[calc(100%-7rem)] overflow-hidden">
+                <nav className="flex-1 pt-6 px-3 space-y-1.5 overflow-y-auto overflow-x-hidden">
+                    {navItems.map(({ to, label, icon }) => (
+                        <NavLink
+                            key={to}
+                            to={to}
+                            className={({ isActive }) => `
+                flex items-center gap-4
+                py-3.5 px-4
+                rounded-lg
+                text-gray-700
+                transition-colors duration-200
+                hover:bg-gray-50 hover:text-sky-700
+                ${isActive ? "bg-sky-50 text-sky-700 font-medium" : ""}
+                whitespace-nowrap
+                overflow-hidden text-ellipsis
+              `}
+                        >
+                            <span className="text-xl w-7 flex-shrink-0 text-center">
+                                {icon}
+                            </span>
+                            <span
+                                className={`
+                transition-opacity duration-200 delay-100
+                overflow-hidden text-ellipsis
+                ${expanded ? "opacity-100" : "opacity-0"}
+              `}
+                            >
+                                {label}
+                            </span>
+                        </NavLink>
+                    ))}
+                </nav>
+
+                <div className="px-3 pb-6 pt-4 border-t border-gray-100 mt-auto">
                     <button
-                        onClick={() => setCollapsed(!collapsed)}
-                        className="p-2 rounded hover:bg-gray-700 transition-colors"
+                        className="
+              flex items-center gap-4
+              py-3.5 px-4 w-full
+              rounded-lg
+              text-gray-700 hover:bg-gray-50 hover:text-rose-700
+              transition-colors duration-200
+              whitespace-nowrap
+              overflow-hidden text-ellipsis
+            "
                     >
-                        {collapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+                        <span className="text-xl w-7 flex-shrink-0 text-center">
+                            <FaSignOutAlt />
+                        </span>
+                        <span
+                            className={`
+              transition-opacity duration-200 delay-100
+              overflow-hidden text-ellipsis
+              ${expanded ? "opacity-100" : "opacity-0"}
+            `}
+                        >
+                            Logout
+                        </span>
                     </button>
                 </div>
-
-            {/* Navigation */}
-            <nav className="flex-1 px-2 py-4 space-y-2">
-                {navItems.map(({ to, label, icon }) => (
-                    <NavLink
-                        key={to}
-                        to={to}
-                        className={({ isActive }) =>
-                            `flex items-center gap-3 px-4 py-3 mb-2 rounded-md 
-                             hover:text-white transition 
-                            ${isActive ? "bg-purple-500 dark:bg-[#252628] text-white font-semibold" : "hover:bg-white/15"}
-                             dark:text-white dark:hover:bg-[#2f3033] `
-                        }
-                    >
-                        <span className="flex items-center justify-center">
-                        {icon}
-                        </span>
-                        {!collapsed && <span className="ml-4">{label}</span>}
-                    </NavLink>
-                ))}
-            </nav>
-
-
-            {/* <nav className="flex-1 px-2 py-4">
-                {navigationItems.map((item) => (
-                    <Link
-                        key={item.path}
-                        to={item.path}
-                        className={`flex items-center px-4 py-3 mb-2 rounded-lg transition-colors ${isActive(item.path)
-                            ? 'bg-purple-600 text-white'
-                            : 'hover:bg-gray-700'
-                            }`}
-                    >
-                        <span className="flex items-center justify-center">
-                            {item.icon}
-                        </span>
-                        {!collapsed && (
-                            <span className="ml-4 text-sm font-medium ">{item.label}</span>
-                        )}
-                    </Link>
-                ))}
-            </nav> */}
-
-            {/* Logout */}
-            <div className="p-4 border-t border-white/20">
-                <button className="flex items-center gap-3 p-3 rounded-md w-full hover:bg-white hover:text-purple-700 transition">
-                    <FaSignOutAlt />
-                    {!collapsed && <span>Logout</span>}
-                </button>
             </div>
         </div>
     );
