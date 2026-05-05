@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Sun, Moon, Monitor, Database, RefreshCcw, Brain, Settings2 } from "lucide-react";
-import { useTheme } from "../hooks/useTheme"; // adjust path if needed
+// import { useTheme } from "../hooks/useTheme"; // adjust path if needed
 import { API_BASE_URL, getHealth, getModelInfo } from "../api/eegApi";
 
 
@@ -9,7 +9,7 @@ const Settings = () => {
   // const [theme, setTheme] = useState("light");
 
 
-  const { theme, toggleTheme } = useTheme();
+  // const { theme, toggleTheme } = useTheme();
 
   
   const [apiStatus, setApiStatus] = useState("Checking...");
@@ -22,17 +22,17 @@ const Settings = () => {
   //   document.documentElement.classList.toggle("dark", mode === "dark");
   // };
 
-  const handleThemeChange = (mode) => {
-    if (mode === "light") {
-      toggleTheme("light");
-    } else if (mode === "dark") {
-      toggleTheme("dark");
-    } else {
-      // system mode
-      const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      toggleTheme(systemDark ? "dark" : "light");
-    }
-  };
+  // const handleThemeChange = (mode) => {
+  //   if (mode === "light") {
+  //     toggleTheme("light");
+  //   } else if (mode === "dark") {
+  //     toggleTheme("dark");
+  //   } else {
+  //     // system mode
+  //     const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  //     toggleTheme(systemDark ? "dark" : "light");
+  //   }
+  // };
 
 
   const handleModelRefresh = async () => {

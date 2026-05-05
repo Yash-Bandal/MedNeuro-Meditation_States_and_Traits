@@ -19,9 +19,9 @@ const Layout = () => {
   // Loading screen
   if (initializing) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-6 bg-white dark:bg-slate-950 transition-colors duration-300">
+      <div className="min-h-screen flex items-center justify-center px-6 bg-white  transition-colors duration-300">
         <div className="flex flex-col items-center gap-7">
-          <p className="text-xl sm:text-2xl font-light tracking-widest text-slate-600 dark:text-slate-300">
+          <p className="text-xl sm:text-2xl font-light tracking-widest text-slate-600 ">
             Preparing your dashboard
           </p>
 
