@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Sun, Moon, LogOut } from "lucide-react";
-import { useTheme } from "../hooks/useTheme";
+// import { useTheme } from "../hooks/useTheme";
 
 const Header = () => {
-    const { theme, toggleTheme } = useTheme();
+    // const { theme, toggleTheme } = useTheme();
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef(null);
 
