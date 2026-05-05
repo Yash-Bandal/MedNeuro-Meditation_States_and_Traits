@@ -173,14 +173,14 @@ const WaveRow = forwardRef(({ band, isLast }, ref) => {
           />
           <span
             style={{ fontFamily: "'DM Mono', monospace" }}
-            className="text-xs font-medium text-gray-800 dark:text-gray-200"
+            className="text-xs font-medium text-gray-800 "
           >
             {band.greek} {band.name}
           </span>
         </div>
         <span
           style={{ fontFamily: "'DM Mono', monospace" }}
-          className="text-[10px] text-gray-400 dark:text-gray-500"
+          className="text-[10px] text-gray-400 "
         >
           {band.range}
         </span>
@@ -192,7 +192,7 @@ const WaveRow = forwardRef(({ band, isLast }, ref) => {
       />
 
       {!isLast && (
-        <div className="w-full h-px bg-gray-100 dark:bg-gray-800 mt-1 mb-1" />
+        <div className="w-full h-px bg-gray-100 mt-1 mb-1" />
       )}
     </div>
   );
@@ -223,18 +223,18 @@ const BrainWaveEEGTracings = () => {
   }, [refreshAll]);
 
   return (
-    <div className="w-full bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4">
+    <div className="w-full bg-white  rounded-2xl border border-gray-100 p-4">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div>
           <p
             style={{ fontFamily: "'DM Mono', monospace" }}
-            className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-0.5"
+            className="text-[10px] uppercase tracking-widest text-gray-400  mb-0.5"
           >
             Live simulation 
             {/* Live simulation · auto-refresh 5s */}
           </p>
-          <h2 className="text-sm font-medium text-gray-900 dark:text-gray-100">
+          <h2 className="text-sm font-medium text-gray-900 ">
             Brain Waves — EEG Tracings
           </h2>
         </div>
