@@ -11,10 +11,10 @@ import HB from "../assets/HB.webm";
 import RTImg from "../assets/RTImg.png";
 
 
-import Temporal from "../assets/Temporal.PNG";
-import Occipital from "../assets/Occipital.PNG";
-import Parietal from "../assets/Parietal.PNG";
-import Frontal from "../assets/Frontal.PNG";
+import Temporal from "../assets/Temporal.png";
+import Occipital from "../assets/Occipital.png";
+import Parietal from "../assets/Parietal.png";
+import Frontal from "../assets/Frontal.png";
 
 
 
