@@ -70,12 +70,15 @@ The project includes:
 - React Router
 - Zustand (prediction state persistence across page changes)
 
+
 ### Backend
 
 - Flask
 - flask-cors
 - pandas
 - scikit-learn (for model inference)
+
+<br>
 
 ## Project Structure
 
@@ -101,6 +104,8 @@ MedNeuro-Meditation_States_and_Traits/
 └─ README.md
 ```
 
+<br>
+
 ## Frontend Routes
 
 - `/` Dashboard
@@ -111,6 +116,8 @@ MedNeuro-Meditation_States_and_Traits/
 - `/settings` System settings and backend/model info
 
 Note: Some views are also rendered as in-page tabs (for example in Dashboard and Upload page sections).
+
+<br>
 
 ## Backend API
 
@@ -156,6 +163,8 @@ Output:
 
 Accepts `{ "samples": [ ... ] }` and returns interpreted prediction per sample.
 
+<br>
+
 ## Setup
 
 ## 1) Backend
@@ -181,11 +190,20 @@ npm run dev
 
 Frontend default URL: `http://localhost:5173`
 
+<br>
+
 ## Environment Notes
 
 - Frontend API base can be configured via `VITE_API_BASE_URL`.
 - If unset, frontend uses `http://127.0.0.1:5000`.
 
+<br>
+
 ## License
 
-This project is released under the MIT License. See `LICENSE`.
+This project is released under the [MIT LICENSE](https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/bbc74ceae8392c5eab11702239e7df2e3467fd6f/LICENSE).
+
+
+<br>
+
+## Made With ❤ BY [YB](https://github.com/Yash-Bandal)
