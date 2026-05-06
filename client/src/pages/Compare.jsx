@@ -20,7 +20,7 @@ import { Brain, BarChart3, Activity , Waves, Sparkles } from "lucide-react";
 
 import LoadingSpinner from "../components/LoadingSpinner";
 
-import EEGB from "../assets/EEGB.png";
+import EEGB from "../assets/EEGB.PNG";
 
 const EEGGroupComparison = () => {
 
