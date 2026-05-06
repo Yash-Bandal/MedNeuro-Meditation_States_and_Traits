@@ -1,7 +1,7 @@
 // src/components/Layout.jsx
-import Sidebar from "./Sidebar";
+import Sidebar from "./UI/Sidebar";
 // import Sidebar from "./Slider";
-import Header from "./Header";
+import Header from "./UI/Header";
 import { Outlet } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import ScrollToTop from "./ScrollToTop";

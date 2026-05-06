@@ -4,16 +4,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 
 // Importing pages
-import Dashboard from "./pages/DashboardMain";
-import Compare from "./pages/Compare";
-import Cards from "./pages/Cards";
-import Analytics from "./pages/Analytics";
-// import AIAdvisor from "./pages/AIAdvisor";
-// import Admin from "./pages/Admin";
+import Dashboard from "./pages/Dashboard/DashboardMain";
+import Cards from "./pages/Dashboard/Participants";
+import KeyInsights from "./pages/Dashboard/KeyInsights"
+
+import Compare from "./pages/Classifier/Compare";
+import Analytics from "./pages/Classifier/Analytics";
+
 import Settings from "./pages/Settings";
-import KeyInsights from "./pages/KeyInsights"
-import UploadEEGData from "./pages/UploadEEGData";
-import StatResults from "./pages/StatResults";
+import UploadEEGData from "./pages/Classifier/UploadEEGData";
+import StatResults from "./pages/Statistics/StatResults";
 
 // //Animes
 // import BrandNameAnimation from "./loaders/BrandNameAnimation";
