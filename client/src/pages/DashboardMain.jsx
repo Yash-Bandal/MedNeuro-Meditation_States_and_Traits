@@ -128,7 +128,7 @@ const DashboardMain = () => {
                         loop
                         muted
                         playsInline
-                        className="w-20 object-contain"
+                        className="w-20 object-contain select-none pointer-events-none"
                     />
 
                     <h1 className="text-2xl font-semibold text-slate-800">
@@ -351,7 +351,7 @@ const DashboardMain = () => {
                                                 loop
                                                 muted
                                                 playsInline
-                                                className="w-full h-full max-h-[220px] object-contain rounded-lg"
+                                                className="w-full h-full max-h-[220px] object-contain rounded-lg select-none pointer-events-none"
                                             />
                                         </div>
 

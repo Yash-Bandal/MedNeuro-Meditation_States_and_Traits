@@ -19,6 +19,7 @@ import {
 import LoadingSpinner from "../components/LoadingSpinner"; // <- add this
 
 import HB from "../assets/Epilepsy.mp4";
+import EEGReport from "../assets/EEGReport.png";
 
 const EEGReports = () => {
   const [loading, setLoading] = useState(true);
@@ -83,8 +84,9 @@ const EEGReports = () => {
 
 
          <div>
-          <div className="flex items-center space-x-3 mb-6">
-            <Brain className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
+          <div className="flex items-center space-x-3  mb-6">
+            {/* <Brain className="w-8 h-8 text-indigo-600 dark:text-indigo-400" /> */}
+                <img className="h-8 select-none pointer-events-none" src={EEGReport} />
             <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
               EEG Model Performance Report
             </h1>
@@ -95,14 +97,14 @@ const EEGReports = () => {
           </p>
          </div>
 
-            <div className= "p-2">
+            <div className= "p-1">
               <video
                 src={HB}
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-44 object-contain"
+                className="w-44 object-contain select-none pointer-events-none"
               />
             </div>
           </div>
@@ -115,20 +117,20 @@ const EEGReports = () => {
         {/* === SUMMARY CARDS === */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Accuracy */}
-          <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-800 shadow-sm">
+          <div className="bg-white dark:bg-indigo-900/20 p-6 rounded-2xl border border-gray-300  dark:border-indigo-800 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Activity className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               <h3 className="font-semibold text-indigo-800 dark:text-indigo-300">
                 Model Accuracy
               </h3>
             </div>
-            <p className="text-4xl font-bold text-indigo-700 dark:text-indigo-200">
+            <p className="text-3xl font-bold text-indigo-700 dark:text-indigo-200">
               {accuracy.toFixed(1)}%
             </p>
           </div>
 
           {/* Data Summary */}
-          <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100 dark:border-blue-800 shadow-sm">
+          <div className="bg-white dark:bg-blue-900/20 p-6 rounded-2xl border border-gray-300 dark:border-blue-800 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Zap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <h3 className="font-semibold text-blue-800 dark:text-blue-300">
@@ -150,7 +152,7 @@ const EEGReports = () => {
           </div>
 
           {/* Training Info */}
-          <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-2xl border border-green-100 dark:border-green-800 shadow-sm">
+          <div className="bg-white dark:bg-green-900/20 p-6 rounded-2xl border border-gray-300 dark:border-green-800 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Clock className="w-5 h-5 text-green-600 dark:text-green-400" />
               <h3 className="font-semibold text-green-800 dark:text-green-300">
@@ -167,7 +169,7 @@ const EEGReports = () => {
           </div>
 
           {/* Model Config */}
-          <div className="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-2xl border border-yellow-100 dark:border-yellow-800 shadow-sm">
+          <div className="bg-white dark:bg-yellow-900/20 p-6 rounded-2xl border border-gray-300 dark:border-yellow-800 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Settings className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
               <h3 className="font-semibold text-yellow-800 dark:text-yellow-300">
@@ -192,7 +194,7 @@ const EEGReports = () => {
         {/* === PERFORMANCE CHART === */}
         <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
-            Model Comparison (Demo Metrics)
+            Model Comparison 
           </h2>
           <div className="h-96">
             <ResponsiveContainer width="100%" height="100%">
@@ -202,9 +204,9 @@ const EEGReports = () => {
                 <YAxis domain={[0, 100]} />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="RF" fill="#6366F1" />
-                <Bar dataKey="SVM" fill="#10B981" />
-                <Bar dataKey="GB" fill="#F59E0B" />
+                <Bar dataKey="RF" fill="#A5B4FC" />
+                <Bar dataKey="SVM" fill="#6EE7B7" />
+                <Bar dataKey="GB" fill="#FCD34D" />
               </BarChart>
             </ResponsiveContainer>
           </div>

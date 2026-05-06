@@ -4,9 +4,12 @@ import ViolinH1 from "../components/ViolinH!";
 import H2Scatter from "../components/H2Scatter";
 import BoxH3 from "../components/BoxH3";
 
+import Doc from "../assets/DocC.gif";
+import Analysis from "../assets/AnalysisC.gif";
 
 const StatCard = ({ title, stat, sub }) => (
     <div className="rounded-xl border shadow-sm   bg-white p-6">
+
         <p className="text-sm text-gray-500 uppercase tracking-wide">{title}</p>
         <p className="text-2xl font-semibold text-gray-900 mt-1">{stat}</p>
         {sub && <p className="text-xs text-gray-500 mt-1">{sub}</p>}
@@ -251,17 +254,41 @@ const Stat = () => {
 
     return (
         <div className="min-h-screen bg-slate-50 p-6 md:p-8">
-            <div className=" mx-auto space-y-6">
+            <div className=" mx-auto space-y-2 ">
 
                 {/* Title */}
-                <div>
-                    <h1 className="text-2xl font-semibold text-gray-900">
-                        Statistical Analysis
-                    </h1>
-                    <p className="text-sm text-gray-500 mt-1">
-                        EEG-based hypothesis evaluation
-                    </p>
+                <div className="flex justify-between items-center ">
+ 
+                        {/* Left */}
+                    <div className="flex">
+                        <div>
+                            <img className="h-16 select-none pointer-events-none" src={Doc} />
+                            <p className="text-[3px] text-gray-200 text-center">
+                                Icon by <a href="https://iconscout.com" target="_blank" rel="noreferrer" className="underline">Posse Studio</a> on <a href="https://iconscout.com" target="_blank" rel="noreferrer" className="underline">IconScout</a>
+                            </p>
+                        </div>
+
+                        <div className="flex-col">
+                            <h1 className="text-2xl font-semibold text-gray-900 ">
+                                <p>
+                                    Statistical Analysis
+                                </p>
+                            </h1>
+                            <p className="text-sm text-gray-500 mt-1">
+                                EEG-based hypothesis evaluation
+                            </p>
+
+
+                        </div>
+
+                    </div>
+
+                    {/* right image */}
+                    <img className="h-28 select-none pointer-events-none " src={Analysis} />
                 </div>
+
+
+
 
                 {/* Tabs */}
                 <div className="flex gap-2 border-b border-gray-200">
@@ -284,6 +311,14 @@ const Stat = () => {
                 <div className="rounded-2xl border border-gray-200 bg-white p-6">
                     {renderContent()}
                 </div>
+
+                {/* Add this at the very end of your main div, after the content area */}
+                {/* <footer className="mt-8 text-center text-[5px] text-gray-400">
+                    <p>
+                        Icon by <a href="https://iconscout.com" target="_blank" rel="noreferrer" className="underline">Posse Studio</a> on <a href="https://iconscout.com" target="_blank" rel="noreferrer" className="underline">IconScout</a>
+                    </p>
+                </footer> */}
+
 
             </div>
         </div>
