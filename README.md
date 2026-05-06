@@ -1,7 +1,23 @@
-# MedNeuro: EEG Meditation States and Traits
+<div align="">
+
+<table>
+<tr>
+<td>
+<img width="55" src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/src/assets/icons/medneuro-nobg.png"/>
+</td>
+
+<td>
+<h1><b>MedNeuro: EEG Meditation States and Traits </b></h1>
+</td>
+</tr>
+</table>
+
+</div>
 
 MedNeuro is a research-driven web application for EEG-based meditation analysis.  
 It combines a React frontend dashboard with a Flask backend serving a trained machine-learning model for EEG region prediction.
+
+<br>
 
 ## Overview
 
@@ -10,6 +26,39 @@ The project includes:
 - A dashboard with overview metrics, analytics, comparisons, insights, and statistical results
 - A regional classifier flow where users upload EEG JSON input and receive interpreted output
 - A Flask API that loads `eeg_model.pkl` and `feature_columns.json` to run inference
+
+<br>
+
+
+<table>
+  <tr>
+    <td align="center" width="600">
+      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Home.PNG" width="380"/>
+      <br>
+      <b>Dashboard</b>
+    </td>
+    <td align="center" width="600">
+      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Model-Evaluation.PNG" width="380"/>
+      <br>
+      <b>Model Evaluation</b>
+    </td>
+  </tr>
+    <tr>
+    <td align="center" width="600">
+      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Stats.PNG" width="380"/>
+      <br>
+      <b>Statistical Evaluation</b>
+    </td>
+    <td align="center" width="600">
+      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Compare.PNG" width="380"/>
+      <br>
+      <b>Task Commparison</b>
+    </td>
+  </tr>
+</table>
+
+<br>
+
 
 ## Tech Stack
 
