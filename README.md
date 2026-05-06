@@ -33,24 +33,24 @@ The project includes:
 <table>
   <tr>
     <td align="center" width="600">
-      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Home.PNG" width="380"/>
+      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Home.PNG" width="350"/>
       <br>
       <b>Dashboard</b>
     </td>
     <td align="center" width="600">
-      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Model-Evaluation.PNG" width="380"/>
+      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Model-Evaluation.PNG" width="350"/>
       <br>
       <b>Model Evaluation</b>
     </td>
   </tr>
     <tr>
     <td align="center" width="600">
-      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Stats.PNG" width="380"/>
+      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Stats.PNG" width="350"/>
       <br>
       <b>Statistical Evaluation</b>
     </td>
     <td align="center" width="600">
-      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Compare.PNG" width="380"/>
+      <img src="https://github.com/Yash-Bandal/MedNeuro-Meditation_States_and_Traits/blob/5b5bcb61d220fcfdb2a1f18b572aeb57474ea29f/client/public/Compare.PNG" width="350"/>
       <br>
       <b>Task Commparison</b>
     </td>
