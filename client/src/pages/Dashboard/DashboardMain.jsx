@@ -55,13 +55,13 @@ const bandTrendData = [
     { time: "T5", alpha: 0.8, gamma: 0.7 },
 ];
 
-// const donutData = [
-//   { name: "SNY", value: 28, color: "#6658d3" },
-//   { name: "VIP", value: 24, color: "#eb6b8f" },
-//   { name: "HTR", value: 19, color: "#2db1c4" },
-//   { name: "TM", value: 16, color: "#f4ba4f" },
-//   { name: "CTR", value: 13, color: "#f08f3c" },
-// ];
+const donutData = [
+  { name: "SNY", value: 28, color: "#6658d3" },
+  { name: "VIP", value: 24, color: "#eb6b8f" },
+  { name: "HTR", value: 19, color: "#2db1c4" },
+  { name: "TM", value: 16, color: "#f4ba4f" },
+  { name: "CTR", value: 13, color: "#f08f3c" },
+];
 
 const bandComparisonData = [
     { group: "CTR", alpha: 0.45, gamma: 0.30 },
@@ -74,7 +74,9 @@ const DashboardMain = () => {
     const [activeTab, setActiveTab] = useState("overview");
     const memoSummaryCards = useMemo(() => summaryCards, []);
     const memoModules = useMemo(() => modules, []);
-    //   const memoDonutData = useMemo(() => donutData, []);
+      const memoDonutData = useMemo(() => donutData, []);
+
+
     const sidebarStats = useMemo(
         () => [
             { label: "Shoonya Group", pct: 28, color: "#6658d3" },
@@ -157,7 +159,8 @@ const DashboardMain = () => {
                             <div className="flex-1 space-y-6">
 
                                 {/* Summary Cards */}
-                                <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                                {/* <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4"> */}
+                                <section className="grid grid-cols-2 xl:grid-cols-4 gap-4">
                                     {memoSummaryCards.map(({ title, value, icon: Icon, tone }) => (
                                         <div key={title} className="rounded-xl border border-slate-200 bg-white p-4">
                                             <div className="flex items-center justify-between mb-2">
@@ -175,10 +178,11 @@ const DashboardMain = () => {
                                 <section className="grid grid-cols-1 xl:grid-cols-2 gap-5">
 
                                     {/* Donut Chart */}
-                                    {/* <div className="rounded-xl border border-slate-200 bg-white p-4">
+                                    <div className="rounded-xl border border-slate-200 bg-white p-4 hidden max-sm:block">
                                       <p className="text-sm font-semibold text-slate-700 mb-3">
                                           Tradition Distribution
                                       </p>
+
                                       <div className="h-64">
                                           <ResponsiveContainer width="100%" height="100%">
                                               <PieChart>
@@ -199,7 +203,7 @@ const DashboardMain = () => {
                                               </PieChart>
                                           </ResponsiveContainer>
                                       </div>
-                                  </div> */}
+                                  </div>
 
 
 
@@ -320,10 +324,10 @@ const DashboardMain = () => {
 
                                                 {/* 2. Colab Research */}
                                                 <a
-                                                    href="https://colab.research.google.com/drive/1oP8HSQmYyksIMZhsPeAkkWcAlFLAwcYk#scrollTo=x9i7Bk8JpFPK"
+                                                    href="https://colab.research.google.com/drive/15ZKUyFSTHukC9o8vtCAol-1-3G67iOWc?usp=sharing"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="rounded-lg border border-slate-200 p-3 hover:bg-slate-50 transition-colors"
+                                                    className="hidden sm:visible rounded-lg border border-slate-200 p-3 hover:bg-slate-50 transition-colors"
                                                 >
                                                     <div className="flex items-center gap-2 mb-1 text-slate-700">
                                                         <Code2 size={16} className="text-black" />

@@ -80,24 +80,24 @@ const EEGReports = () => {
 
         <div className=" bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm border border-gray-200 dark:border-gray-800">
          
-         <div className = "flex justify-between">
+         <div className = "sm:flex sm:justify-between">
 
 
          <div>
           <div className="flex items-center space-x-3  mb-6">
             {/* <Brain className="w-8 h-8 text-indigo-600 dark:text-indigo-400" /> */}
                 <img className="h-8 select-none pointer-events-none" src={EEGReport} />
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+            <h1 className="text-base sm:text-3xl font-bold text-gray-900 dark:text-gray-100">
               EEG Model Performance Report
             </h1>
           </div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl">
             Machine learning evaluation of EEG-based meditation classification.
             Demo data displayed for Random Forest, SVM, and Gradient Boosting.
           </p>
          </div>
 
-            <div className= "p-1">
+            <div className= "p-1 hidden sm:block">
               <video
                 src={HB}
                 autoPlay
@@ -115,51 +115,56 @@ const EEGReports = () => {
         
 
         {/* === SUMMARY CARDS === */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid  grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Accuracy */}
-          <div className="bg-white dark:bg-indigo-900/20 p-6 rounded-2xl border border-gray-300  dark:border-indigo-800 shadow-sm">
+          <div className="bg-white dark:bg-indigo-900/20 p-4 sm:p-6  rounded-2xl border border-gray-300  dark:border-indigo-800 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
-              <Activity className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-              <h3 className="font-semibold text-indigo-800 dark:text-indigo-300">
+              <Activity className=" hidden sm:block w-5 h-5 text-indigo-600 dark:text-indigo-400 " />
+              <h3 className="text-sm sm:text-base font-semibold text-indigo-800 dark:text-indigo-300">
                 Model Accuracy
               </h3>
             </div>
-            <p className="text-3xl font-bold text-indigo-700 dark:text-indigo-200">
+            <p className=" text-sm sm:text-3xl font-bold text-indigo-700 dark:text-indigo-200">
               {accuracy.toFixed(1)}%
             </p>
           </div>
 
           {/* Data Summary */}
-          <div className="bg-white dark:bg-blue-900/20 p-6 rounded-2xl border border-gray-300 dark:border-blue-800 shadow-sm">
+          <div className="bg-white dark:bg-blue-900/20 p-4 sm:p-6 rounded-2xl border border-gray-300 dark:border-blue-800 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
-              <Zap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-              <h3 className="font-semibold text-blue-800 dark:text-blue-300">
+              <Zap className="hidden sm:block w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <h3 className=" text-sm sm:text-base  font-semibold text-blue-800 dark:text-blue-300">
                 Data Overview
               </h3>
             </div>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
+
+            <div className="">
+
+            <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-base">
               <span className="font-semibold">Participants:</span>{" "}
               {dataSummary.participants}
             </p>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
+            <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-base">
               <span className="font-semibold">Groups:</span>{" "}
               {dataSummary.meditationGroups}
             </p>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
+            <p className=" text-gray-700 dark:text-gray-300 text-xs sm:text-base">
               <span className="font-semibold">Tasks:</span>{" "}
               {dataSummary.totalTasks}
             </p>
+            </div>
+
           </div>
 
           {/* Training Info */}
-          <div className="bg-white dark:bg-green-900/20 p-6 rounded-2xl border border-gray-300 dark:border-green-800 shadow-sm">
+          <div className="bg-white dark:bg-green-900/20 p-4 sm:p-6 rounded-2xl border border-gray-300 dark:border-green-800 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
-              <Clock className="w-5 h-5 text-green-600 dark:text-green-400" />
-              <h3 className="font-semibold text-green-800 dark:text-green-300">
+              <Clock className="hidden sm:block w-5 h-5 text-green-600 dark:text-green-400" />
+              <h3 className="text-sm sm:text-base  font-semibold text-green-800 dark:text-green-300">
                 Training Date
               </h3>
             </div>
-            <p className="text-gray-700 dark:text-gray-300">
+            <p className="text-xs sm:text-lg  text-gray-700 dark:text-gray-300">
               {trainingDate.toLocaleDateString()}{" "}
               {trainingDate.toLocaleTimeString([], {
                 hour: "2-digit",
@@ -169,34 +174,40 @@ const EEGReports = () => {
           </div>
 
           {/* Model Config */}
-          <div className="bg-white dark:bg-yellow-900/20 p-6 rounded-2xl border border-gray-300 dark:border-yellow-800 shadow-sm">
+          <div className="bg-white dark:bg-yellow-900/20 p-4 sm:p-6 rounded-2xl border border-gray-300 dark:border-yellow-800 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
-              <Settings className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
-              <h3 className="font-semibold text-yellow-800 dark:text-yellow-300">
+              <Settings className="hidden sm:block w-5 h-5 text-yellow-600 dark:text-yellow-400" />
+              <h3 className="text-sm sm:text-base  font-semibold text-yellow-800 dark:text-yellow-300">
                 Model Configuration
               </h3>
             </div>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
+
+           
+
+            <div className="">
+
+              <p className="text-gray-700 dark:text-gray-300  text-xs sm:text-base ">
               Algorithm: {modelConfig.algorithm}
             </p>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-base">
               Estimators: {modelConfig.n_estimators}
             </p>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-base ">
               Features: {modelConfig.features_used}
             </p>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-base ">
               Test Split: {modelConfig.test_split}
             </p>
+            </div>
           </div>
         </div>
 
         {/* === PERFORMANCE CHART === */}
         <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
+          <h2 className="text-sm sm:text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
             Model Comparison 
           </h2>
-          <div className="h-96">
+          <div className="h-64 sm:h-96">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={comparisonData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />

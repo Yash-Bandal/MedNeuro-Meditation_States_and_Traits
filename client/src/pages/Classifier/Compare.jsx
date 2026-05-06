@@ -26,7 +26,7 @@ const EEGBandComparison = () => {
       const [loading, setLoading] = useState(true);
 
         useEffect(() => {
-          const timer = setTimeout(() => setLoading(false), 50000);
+          const timer = setTimeout(() => setLoading(false), 500);
           return () => clearTimeout(timer);
         }, []);
 
@@ -188,7 +188,7 @@ const EEGBandComparison = () => {
                 </div>
 
                 <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
+                    <h3 className=" text-lg font-semibold text-gray-900">
                         {title}
                     </h3>
 
@@ -265,22 +265,30 @@ const EEGBandComparison = () => {
                     {/* <div className="p-3 rounded-2xl bg-indigo-100">
                         <Brain className="w-7 h-7 text-indigo-600" />
                     </div> */}
-                       <img className="h-14" src={EEGB} alt="EEG" />
+                       {/* <img className="hidden sm:block h-8 sm:h-14" src={EEGB} alt="EEG" /> */}
 
                     <div>
-                        <h1 className="text-3xl font-bold text-gray-900">
+
+                        <h1 className="flex items-center space-x-3  mb-6 text-base sm:text-3xl font-bold text-gray-900">
+
+                            <img className=" h-6 sm:h-8" src={EEGB} alt="EEG" />
+                            {/* <img className="hidden max-sm:block h-6 sm:h-14" src={EEGB} alt="EEG" /> */}
+                             <p>
                             EEG Spectral State Comparison
+
+                            </p>
                         </h1>
 
-                        <p className="text-gray-500 mt-1">
+                        <p className="text-sm sm:text-base text-gray-500 mt-1">
                             Comparative EEG band modulation between Meditative Breathing and Cognitive Thinking tasks
                         </p>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-8">
+                {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8"> */}
 
-                    <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
+                    <div className="hidden sm:block bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
                         <p className="text-sm text-indigo-700 font-semibold mb-2">
                             State-Based EEG Dynamics
                         </p>
@@ -291,21 +299,21 @@ const EEGBandComparison = () => {
                     </div>
 
                     <div className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
-                        <p className="text-sm text-amber-700 font-semibold mb-2">
+                        <p className=" text-xs sm:text-sm text-amber-700 font-semibold mb-2">
                             Gamma Dominance
                         </p>
 
-                        <p className="text-sm text-gray-700 leading-relaxed">
+                        <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                             Shoonya practitioners consistently showed elevated gamma activity, indicating stronger integrative awareness dynamics.
                         </p>
                     </div>
 
                     <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-5">
-                        <p className="text-sm text-emerald-700 font-semibold mb-2">
+                        <p className="text-xs sm:text-sm text-emerald-700 font-semibold mb-2">
                             Alpha Stabilization
                         </p>
 
-                        <p className="text-sm text-gray-700 leading-relaxed">
+                        <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                             Vipassana and TM groups demonstrated sustained alpha activity associated with calm attentional regulation.
                         </p>
                     </div>
@@ -317,7 +325,7 @@ const EEGBandComparison = () => {
             {/* CHART GRID */}
             {/* ========================================================= */}
 
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
                 {/* THETA */}
                 <ChartCard

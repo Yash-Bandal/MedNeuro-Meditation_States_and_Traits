@@ -121,7 +121,7 @@ const SettingsPage = () => {
 
           <div className="flex items-center gap-4">
 
-            <div className="w-14 h-14 rounded-2xl bg-neutral-100 flex items-center justify-center border border-indigo-100">
+            <div className="w-12 h-12 rounded-2xl bg-neutral-100 flex items-center justify-center border border-indigo-100">
               {/* <Settings2 className="w-7 h-7 text-neutral-800 " /> */}
               <img className="w-12 pointer-events-none select-none rounded-2xl" src = {SI} />
             </div>
